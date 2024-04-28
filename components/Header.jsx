@@ -44,40 +44,30 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <ul
+            <div
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg border rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-lg border rounded-box w-52 space-y-3"
             >
               <SignedIn>
-                <li>
-                  <Link href="/dashboard">Dashboard</Link>
-                </li>
+                <Link href="/dashboard">Dashboard</Link>
               </SignedIn>
-              <li>
-                <Link href="#">Relevant Link</Link>
-              </li>
-            </ul>
+              <Link href="#">Relevant Link</Link>
+            </div>
           </div>
           {/* End mobile view */}
         </div>
 
         {/* Desktop view */}
-        <div className="navbar-end hidden md:flex">
-          <ul className="menu menu-horizontal">
-            <SignedIn>
-              <li>
-                <Link href="/dashboard">Dashboard</Link>
-              </li>
-            </SignedIn>
-            <li>
-              <Link href="#">Relevant Link</Link>
-            </li>
-          </ul>
+        <div className="navbar-end hidden md:flex space-x-4">
+          <SignedIn>
+            <Link href="/dashboard">Dashboard</Link>
+          </SignedIn>
+          <Link href="#">Relevant Link</Link>
         </div>
         {/* End desktop view */}
 
         {/* Theme switcher and Clerk button */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center ml-4 space-x-4">
           <ThemeToggle />
           {/* Clerk button and profile*/}
           <SignedOut>
