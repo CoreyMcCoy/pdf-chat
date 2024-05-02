@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 export default function Header() {
   return (
