@@ -4,11 +4,11 @@ export default async function page() {
   const user = await currentUser(); // Server-side hook for accessing user information
 
   return (
-    <section className="py-24">
-      <div className="container">
+    <>
+      <div className="text-center mb-20">
         <h1 className="text-2xl font-semibold mb-3">Dashboard (protected)</h1>
         <p>Welcome back, {user.username}!</p>
       </div>
-    </section>
+    </>
   );
 }

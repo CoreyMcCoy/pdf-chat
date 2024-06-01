@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Header />
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen">
+              <div className="container max-w-6xl py-24">{children}</div>
+            </main>
           </ThemeProvider>
         </body>
       </html>
