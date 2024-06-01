@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 import { Button } from '@/components/ui/button';
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function Header() {
   return (
@@ -15,16 +15,12 @@ export default function Header() {
         <div className="navbar-start flex">
           <Link href="/" className="font-semibold">
             <div className="hidden md:flex">
-              <span className="text-lg">SaaS Boilerplate</span>
+              <h3 className="text-xl font-bold">
+                PDF <span className="text-pink-600">Chat</span>
+              </h3>
             </div>
             <div className="md:hidden">
-              <Image
-                src="/saas-app-icon.png"
-                alt="SaaS Icon"
-                width={40}
-                height={40}
-                priority
-              />
+              <Image src="/saas-app-icon.png" alt="SaaS Icon" width={40} height={40} priority />
             </div>
           </Link>
           <div className="dropdown ml-2">
@@ -44,36 +40,48 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <div
+            <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-lg border rounded-box w-52 space-y-3"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-lg border rounded-box w-52"
             >
               <SignedIn>
-                <Link href="/dashboard">Dashboard</Link>
+                <li>
+                  <Link href="/dashboard">Dashboard</Link>
+                </li>
               </SignedIn>
-              <Link href="#">Relevant Link</Link>
-            </div>
+              <li>
+                <Link href="/#">Link</Link>
+              </li>
+            </ul>
           </div>
           {/* End mobile view */}
         </div>
 
         {/* Desktop view */}
-        <div className="navbar-end hidden md:flex space-x-4">
-          <SignedIn>
-            <Link href="/dashboard">Dashboard</Link>
-          </SignedIn>
-          <Link href="#">Relevant Link</Link>
+        <div className="navbar-end hidden md:flex">
+          <ul className="menu menu-horizontal space-x-2">
+            <SignedIn>
+              <li>
+                <Link href="/dashboard">Dashboard</Link>
+              </li>
+            </SignedIn>
+            <li>
+              <Link href="/#">Link</Link>
+            </li>
+          </ul>
         </div>
         {/* End desktop view */}
 
         {/* Theme switcher and Clerk button */}
-        <div className="flex items-center ml-4 space-x-4">
+        <div className="flex items-center space-x-4">
           <ThemeToggle />
-          {/* Clerk button and profile*/}
           <SignedOut>
             <SignInButton>
               <Button variant="outline">Sign in</Button>
             </SignInButton>
+            <SignUpButton>
+              <Button>Sign up</Button>
+            </SignUpButton>
           </SignedOut>
           <SignedIn>
             <UserButton />
